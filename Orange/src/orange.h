@@ -5,6 +5,7 @@
 
 
 #include "orange/application.h"
+#include "orange/log.h"
 
 
 // --- Entry Point ----------------------------------
