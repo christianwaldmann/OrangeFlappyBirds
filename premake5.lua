@@ -16,9 +16,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Orange/vendor/GLFW/include"
+IncludeDir["Glad"] = "Orange/vendor/Glad/include"
 
 
 include "Orange/vendor/GLFW"
+include "Orange/vendor/Glad"
 
 
 project "Orange"
@@ -43,11 +45,13 @@ project "Orange"
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}",
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -59,7 +63,8 @@ project "Orange"
 		defines
 		{
 			"OG_PLATFORM_WINDOWS",
-			"OG_BUILD_DLL"
+			"OG_BUILD_DLL",
+			"GLFW_INCLUDE_NONE",
 		}
 
 		postbuildcommands

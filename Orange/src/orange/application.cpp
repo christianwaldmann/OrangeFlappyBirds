@@ -3,6 +3,8 @@
 
 #include "orange/Log.h"
 
+#include "glad/glad.h"
+
 
 namespace Orange {
 
