@@ -20,6 +20,10 @@ namespace Orange {
 
 	void application::run() {
 		while (m_Running) {
+
+			for (Layer* layer : m_LayerStack)
+				layer->OnUpdate();
+
 			m_Window->OnUpdate();
 		}
 	}
@@ -29,7 +33,21 @@ namespace Orange {
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(application::OnWindowClose));
 
-		OG_CORE_TRACE("{0}", e);
+		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); ) {
+			(*--it)->OnEvent(e);
+			if (e.Handled)
+				break;
+		}
+	}
+
+
+	void application::PushLayer(Layer* layer) {
+		m_LayerStack.PushLayer(layer);
+	}
+
+
+	void application::PushOverlay(Layer* overlay) {
+		m_LayerStack.PushOverlay(overlay);
 	}
 
 
