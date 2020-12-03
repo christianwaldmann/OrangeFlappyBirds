@@ -12,6 +12,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "orange/Log.h"
+
 
 #ifdef OG_PLATFORM_WINDOWS
 #include <Windows.h>
