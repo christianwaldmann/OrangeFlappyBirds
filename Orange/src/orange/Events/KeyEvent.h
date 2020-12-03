@@ -13,7 +13,7 @@ namespace Orange {
 		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
 
 	protected:
-		KeyEvent(int keycode) : m_Keycode(keycode) {}
+		KeyEvent(int keycode) : m_KeyCode(keycode) {}
 
 		int m_KeyCode;
 	};
