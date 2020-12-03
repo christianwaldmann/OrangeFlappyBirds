@@ -21,6 +21,9 @@ project "Orange"
 	targetdir ("bin/" .. outputdir .."/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .."/%{prj.name}")
 
+	pchheader "ogpch.h"
+	pchsource "Orange/src/ogpch.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",

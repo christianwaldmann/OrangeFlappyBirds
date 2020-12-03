@@ -1,3 +1,4 @@
+#include "ogpch.h"
 #include "application.h"
 
 #include "orange/Events/ApplicationEvent.h"
