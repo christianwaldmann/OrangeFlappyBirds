@@ -8,12 +8,16 @@ public:
 
 
 	void OnUpdate() override {
-		OG_INFO("ExampleLayer::Update");
+		if (Orange::Input::IsKeyPressed(OG_KEY_TAB))
+			OG_TRACE("Tab key is pressed!");
 	}
 
 
 	void OnEvent(Orange::Event& event) override {
-		OG_TRACE("{0}", event);
+		if (event.GetEventType() == Orange::EventType::KeyPressed) {
+			Orange::KeyPressedEvent& e = (Orange::KeyPressedEvent&)event;
+			OG_TRACE("{0}", (char)e.GetKeyCode());
+		}
 	}
 };
 

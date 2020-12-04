@@ -9,6 +9,9 @@
 #include "orange/log.h"
 #include "orange/ImGui/ImGuiLayer.h"
 
+#include "orange//Input.h"
+#include "orange//KeyCodes.h"
+#include "orange//MouseButtonCodes.h"
 
 // --- Entry Point ----------------------------------
 
