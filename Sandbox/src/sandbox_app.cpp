@@ -24,6 +24,7 @@ class Sandbox : public Orange::application {
 public:
 	Sandbox() {
 		PushLayer(new ExampleLayer());
+		PushOverlay(new Orange::ImGuiLayer());
 	}
 
 
