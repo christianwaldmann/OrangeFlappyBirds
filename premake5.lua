@@ -20,9 +20,13 @@ IncludeDir["Glad"] = "Orange/vendor/Glad/include"
 IncludeDir["ImGui"] = "Orange/vendor/imgui"
 
 
-include "Orange/vendor/GLFW"
-include "Orange/vendor/Glad"
-include "Orange/vendor/imgui"
+group "Dependencies"
+	include "Orange/vendor/GLFW"
+	include "Orange/vendor/Glad"
+	include "Orange/vendor/imgui"
+
+
+group ""
 
 
 project "Orange"
