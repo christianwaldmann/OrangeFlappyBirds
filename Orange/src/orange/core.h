@@ -12,6 +12,11 @@
 #endif
 
 
+#ifdef OG_DEBU
+#define OG_ENABLE_ASSERTS
+#endif
+
+
 #ifdef OG_ENABLE_ASSERTS
 #define OG_ASSERT(x, ...) { if(!(x)) { OG_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 #define OG_CORE_ASSERT(x, ...) { if(!(x)) { OG_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
