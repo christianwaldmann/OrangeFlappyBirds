@@ -1,5 +1,7 @@
 #include <orange.h>
 
+#include "imgui/imgui.h"
+
 
 class ExampleLayer : public Orange::Layer {
 
@@ -10,6 +12,13 @@ public:
 	void OnUpdate() override {
 		if (Orange::Input::IsKeyPressed(OG_KEY_TAB))
 			OG_TRACE("Tab key is pressed!");
+	}
+
+
+	void OnImGuiRender() override {
+		ImGui::Begin("Test");
+		ImGui::Text("Hallo Welt");
+		ImGui::End();
 	}
 
 
@@ -28,7 +37,6 @@ class Sandbox : public Orange::application {
 public:
 	Sandbox() {
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Orange::ImGuiLayer());
 	}
 
 

@@ -118,6 +118,7 @@ project "Sandbox"
 	includedirs
 	{
 		"Orange/vendor/spdlog/include",
+		"Orange/vendor",
 		"Orange/src",
 		"%{IncludeDir.glm}",
 	}

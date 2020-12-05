@@ -6,6 +6,8 @@
 #include "orange/Events/ApplicationEvent.h"
 #include "orange/LayerStack.h"
 
+#include "orange/ImGui/ImGuiLayer.h"
+
 
 namespace Orange {
 
@@ -29,6 +31,7 @@ namespace Orange {
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 	private:
