@@ -18,6 +18,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Orange/vendor/GLFW/include"
 IncludeDir["Glad"] = "Orange/vendor/Glad/include"
 IncludeDir["ImGui"] = "Orange/vendor/imgui"
+IncludeDir["glm"] = "Orange/vendor/glm"
 
 
 group "Dependencies"
@@ -45,6 +46,8 @@ project "Orange"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl",
 	}
 
 	includedirs
@@ -54,6 +57,7 @@ project "Orange"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}",
 	}
 
 	links
@@ -115,6 +119,7 @@ project "Sandbox"
 	{
 		"Orange/vendor/spdlog/include",
 		"Orange/src",
+		"%{IncludeDir.glm}",
 	}
 
 	links
