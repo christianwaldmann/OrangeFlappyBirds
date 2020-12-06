@@ -1,16 +1,11 @@
 #include "ogpch.h"
 #include "ImGuiLayer.h"
 
-#include "imgui.h"
 
-#include "examples/imgui_impl_opengl3.cpp"
-#include "examples/imgui_impl_glfw.cpp"
+#include "orange/ImGui/ImGuiBuild.cpp"
 
 #include "orange/application.h"
 
-// TEMPORARY
-#include "GLFW/glfw3.h"
-#include "Glad/glad.h"
 
 namespace Orange {
 
@@ -75,7 +70,7 @@ namespace Orange {
 	void ImGuiLayer::End() {
 		ImGuiIO& io = ImGui::GetIO();
 		application& app = application::Get();
-		io.DisplaySize = ImVec2(app.GetWindow().GetWidth(), app.GetWindow().GetHeight());
+		io.DisplaySize = ImVec2((float)app.GetWindow().GetWidth(), (float)app.GetWindow().GetHeight());
 
 		// Rendering
 		ImGui::Render();

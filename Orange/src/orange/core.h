@@ -2,10 +2,14 @@
 
 
 #ifdef OG_PLATFORM_WINDOWS
+#if OG_DYNAMIC_LINK
 #ifdef OG_BUILD_DLL
 #define ORANGE_API __declspec(dllexport)
 #else
 #define ORANGE_API __declspec(dllimport)
+#endif
+#else
+#define ORANGE_API
 #endif
 #else
 #error Orange only supports Windows!
