@@ -8,6 +8,8 @@
 
 #include "orange/ImGui/ImGuiLayer.h"
 
+#include "orange/Renderer/Shader.h"
+
 
 namespace Orange {
 
@@ -36,6 +38,8 @@ namespace Orange {
 		LayerStack m_LayerStack;
 
 		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+		std::unique_ptr<Shader> m_Shader;
+
 	private:
 		static application* s_Instance;
 	};
