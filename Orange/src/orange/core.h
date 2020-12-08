@@ -16,7 +16,7 @@
 #endif
 
 
-#ifdef OG_DEBU
+#ifdef OG_DEBUG
 #define OG_ENABLE_ASSERTS
 #endif
 
