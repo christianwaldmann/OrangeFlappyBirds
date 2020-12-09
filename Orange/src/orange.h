@@ -13,6 +13,17 @@
 #include "orange//KeyCodes.h"
 #include "orange//MouseButtonCodes.h"
 
+// --- Renderer -------------------------------------
+
+#include "orange/Renderer/Renderer.h"
+#include "orange/Renderer/RenderCommand.h"
+
+#include "orange/Renderer/Buffer.h"
+#include "orange/Renderer/Shader.h"
+#include "orange/Renderer/VertexArray.h"
+
+#include "orange/Renderer/OrthographicCamera.h"
+
 // --- Entry Point ----------------------------------
 
 #include "orange/entry_point.h"
