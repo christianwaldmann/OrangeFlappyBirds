@@ -6,6 +6,8 @@
 #include "orange/Events/ApplicationEvent.h"
 #include "orange/LayerStack.h"
 
+#include "orange/Core/Timestep.h"
+
 #include "orange/ImGui/ImGuiLayer.h"
 
 
@@ -30,10 +32,13 @@ namespace Orange {
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 
+	private:
 		std::unique_ptr<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
+		Timestep m_Timestep;
+		float m_LastFrameTime = 0.0f;
 
 	private:
 		static application* s_Instance;

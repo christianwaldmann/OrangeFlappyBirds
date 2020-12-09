@@ -122,21 +122,23 @@ public:
 	}
 
 
-	void OnUpdate() override {
+	void OnUpdate(Orange::Timestep ts) override {
+		OG_TRACE("Delta time: {0}s {1}ms", ts.GetSeconds(), ts.GetMilliseconds());
+
 		if (Orange::Input::IsKeyPressed(OG_KEY_LEFT))
-			m_CameraPosition.x -= m_CameraMoveSpeed;
+			m_CameraPosition.x -= m_CameraMoveSpeed * ts;
 		else if (Orange::Input::IsKeyPressed(OG_KEY_RIGHT))
-			m_CameraPosition.x += m_CameraMoveSpeed;
+			m_CameraPosition.x += m_CameraMoveSpeed * ts;
 
 		if (Orange::Input::IsKeyPressed(OG_KEY_UP))
-			m_CameraPosition.y += m_CameraMoveSpeed;
+			m_CameraPosition.y += m_CameraMoveSpeed * ts;
 		else if (Orange::Input::IsKeyPressed(OG_KEY_DOWN))
-			m_CameraPosition.y -= m_CameraMoveSpeed;
+			m_CameraPosition.y -= m_CameraMoveSpeed * ts;
 
 		if (Orange::Input::IsKeyPressed(OG_KEY_A))
-			m_CameraRotation += m_CameraRotationSpeed;
+			m_CameraRotation += m_CameraRotationSpeed * ts;
 		else if (Orange::Input::IsKeyPressed(OG_KEY_D))
-			m_CameraRotation -= m_CameraRotationSpeed;
+			m_CameraRotation -= m_CameraRotationSpeed * ts;
 
 		Orange::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 		Orange::RenderCommand::Clear();
@@ -172,8 +174,8 @@ private:
 	Orange::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
 	float m_CameraRotation = 0.0f;
-	float m_CameraMoveSpeed = 0.02f;
-	float m_CameraRotationSpeed = 1.0f;
+	float m_CameraMoveSpeed = 5.0f;
+	float m_CameraRotationSpeed = 180.0f;
 };
 
 
