@@ -8,16 +8,10 @@
 
 #include "orange/ImGui/ImGuiLayer.h"
 
-#include "orange/Renderer/Shader.h"
-#include "orange/Renderer/Buffer.h"
-#include "orange/Renderer/VertexArray.h"
-
-#include "orange/Renderer/OrthographicCamera.h"
-
 
 namespace Orange {
 
-	class ORANGE_API application {
+	class application {
 
 	public:
 		application();
