@@ -12,6 +12,8 @@
 #include "orange/Renderer/Buffer.h"
 #include "orange/Renderer/VertexArray.h"
 
+#include "orange/Renderer/OrthographicCamera.h"
+
 
 namespace Orange {
 
@@ -44,6 +46,8 @@ namespace Orange {
 
 		std::shared_ptr<Shader> m_BlueShader;
 		std::shared_ptr<VertexArray> m_SquareVA;
+
+		OrthographicCamera m_Camera;
 
 	private:
 		static application* s_Instance;
