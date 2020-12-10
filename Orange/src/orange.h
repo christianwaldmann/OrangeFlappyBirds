@@ -22,6 +22,7 @@
 
 #include "orange/Renderer/Buffer.h"
 #include "orange/Renderer/Shader.h"
+#include "orange/Renderer/Texture.h"
 #include "orange/Renderer/VertexArray.h"
 
 #include "orange/Renderer/OrthographicCamera.h"
