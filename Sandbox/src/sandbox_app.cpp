@@ -167,6 +167,7 @@ public:
 		m_TextureShader.reset(Orange::Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
 
 		m_Texture = Orange::Texture2D::Create("assets/textures/Checkerboard.png");
+		m_ChernoLogoTexture = Orange::Texture2D::Create("assets/textures/ChernoLogo.png");
 
 		std::dynamic_pointer_cast<Orange::OpenGLShader>(m_TextureShader)->Bind();
 		std::dynamic_pointer_cast<Orange::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
@@ -215,6 +216,9 @@ public:
 		m_Texture->Bind();
 		Orange::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
+		m_ChernoLogoTexture->Bind();
+		Orange::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+
 		// Triangle
 		//Orange::Renderer::Submit(m_Shader, m_VertexArray);
 
@@ -242,6 +246,7 @@ private:
 	Orange::Ref<Orange::VertexArray> m_SquareVA;
 
 	Orange::Ref<Orange::Texture2D> m_Texture;
+	Orange::Ref<Orange::Texture2D> m_ChernoLogoTexture;
 
 	Orange::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
