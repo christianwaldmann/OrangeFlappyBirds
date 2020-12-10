@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 
 #ifdef OG_PLATFORM_WINDOWS
 #if OG_DYNAMIC_LINK
@@ -34,3 +36,14 @@
 
 
 #define OG_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
+
+
+namespace Orange {
+
+	template<typename T>
+	using Scope = std::unique_ptr<T>;
+
+	template<typename T>
+	using Ref = std::shared_ptr<T>;
+
+}
