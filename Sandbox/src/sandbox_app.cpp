@@ -93,7 +93,7 @@ public:
 
 		)";
 
-		m_Shader.reset(Orange::Shader::Create(vertexSrc, fragmentSrc));
+		m_Shader = Orange::Shader::Create("VertexPosColor", vertexSrc, fragmentSrc);
 
 		// Square shader
 		std::string flatColorShaderVertexSrc = R"(
@@ -128,15 +128,15 @@ public:
 
 		)";
 
-		m_FlatColorShader.reset(Orange::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+		m_FlatColorShader = Orange::Shader::Create("FlatColor", flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
 
-		m_TextureShader.reset(Orange::Shader::Create("assets/shaders/Texture.glsl"));
+		auto textureShader = m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
 
 		m_Texture = Orange::Texture2D::Create("assets/textures/Checkerboard.png");
 		m_ChernoLogoTexture = Orange::Texture2D::Create("assets/textures/ChernoLogo.png");
 
-		std::dynamic_pointer_cast<Orange::OpenGLShader>(m_TextureShader)->Bind();
-		std::dynamic_pointer_cast<Orange::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
+		std::dynamic_pointer_cast<Orange::OpenGLShader>(textureShader)->Bind();
+		std::dynamic_pointer_cast<Orange::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
 	}
 
 
@@ -179,11 +179,13 @@ public:
 			}
 		}
 
+		auto textureShader = m_ShaderLibrary.Get("Texture");
+
 		m_Texture->Bind();
-		Orange::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		Orange::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		m_ChernoLogoTexture->Bind();
-		Orange::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		Orange::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		// Triangle
 		//Orange::Renderer::Submit(m_Shader, m_VertexArray);
@@ -204,11 +206,12 @@ public:
 	}
 
 private:
+	Orange::ShaderLibrary m_ShaderLibrary;
+
 	Orange::Ref<Orange::Shader> m_Shader;
 	Orange::Ref<Orange::VertexArray> m_VertexArray;
 
 	Orange::Ref<Orange::Shader> m_FlatColorShader;
-	Orange::Ref<Orange::Shader> m_TextureShader;
 	Orange::Ref<Orange::VertexArray> m_SquareVA;
 
 	Orange::Ref<Orange::Texture2D> m_Texture;
