@@ -15,6 +15,8 @@
 #include "orange//KeyCodes.h"
 #include "orange//MouseButtonCodes.h"
 
+#include "orange/OrthographicCameraController.h"
+
 // --- Renderer -------------------------------------
 
 #include "orange/Renderer/Renderer.h"
