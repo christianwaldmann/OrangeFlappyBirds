@@ -12,7 +12,7 @@ class ExampleLayer : public Orange::Layer {
 
 public:
 	ExampleLayer() : Layer("Example"), m_CameraController(1280.0f / 720.0f) {
-		m_VertexArray.reset(Orange::VertexArray::Create());
+		m_VertexArray = Orange::VertexArray::Create();
 
 		float vertices[3 * 7] = {
 			-0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
@@ -36,7 +36,7 @@ public:
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
 		// Square
-		m_SquareVA.reset(Orange::VertexArray::Create());
+		m_SquareVA = Orange::VertexArray::Create();
 
 		float squareVertices[5 * 4] = {
 			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
