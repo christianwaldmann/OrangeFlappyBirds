@@ -15,3 +15,8 @@ bin-int/
 
 # ImGui files
 **/imgui.ini
+
+# Codeblocks files
+**.workspace
+**.workspace.layout
+**.cbp

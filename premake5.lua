@@ -1,6 +1,7 @@
 workspace "Orange"
 	architecture "x64"
 	startproject "Sandbox"
+	require "codeblocks"
 
 	configurations
 	{
