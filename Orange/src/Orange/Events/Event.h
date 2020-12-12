@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ogpch.h"
-#include "orange/core.h"
+#include "Orange/Core/Core.h"
 
 
 namespace Orange {

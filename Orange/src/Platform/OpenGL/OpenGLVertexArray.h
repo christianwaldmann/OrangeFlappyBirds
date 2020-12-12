@@ -1,6 +1,6 @@
 #pragma once
 
-#include "orange/Renderer/VertexArray.h"
+#include "Orange/Renderer/VertexArray.h"
 
 
 namespace Orange {

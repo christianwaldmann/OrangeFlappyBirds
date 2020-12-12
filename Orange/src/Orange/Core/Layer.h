@@ -1,8 +1,8 @@
 #pragma once
 
-#include "orange/core.h"
-#include "orange/Events/Event.h"
-#include "orange/Core/Timestep.h"
+#include "Orange/Core/Core.h"
+#include "Orange/Events/Event.h"
+#include "Orange/Core/Timestep.h"
 
 
 namespace Orange {

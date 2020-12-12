@@ -1,23 +1,23 @@
 #pragma once
 
-#include "core.h"
+#include "Core.h"
 #include "Window.h"
-#include "Events/Event.h"
-#include "orange/Events/ApplicationEvent.h"
-#include "orange/LayerStack.h"
+#include "Orange/Events/Event.h"
+#include "Orange/Events/ApplicationEvent.h"
+#include "Orange/Core/LayerStack.h"
 
-#include "orange/Core/Timestep.h"
+#include "Orange/Core/Timestep.h"
 
-#include "orange/ImGui/ImGuiLayer.h"
+#include "Orange/ImGui/ImGuiLayer.h"
 
 
 namespace Orange {
 
-	class application {
+	class Application {
 
 	public:
-		application();
-		virtual ~application();
+		Application();
+		virtual ~Application();
 
 		void run();
 
@@ -27,7 +27,7 @@ namespace Orange {
 		void PushOverlay(Layer* layer);
 
 		inline Window& GetWindow() { return *m_Window; }
-		inline static application& Get() { return *s_Instance; }
+		inline static Application& Get() { return *s_Instance; }
 
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
@@ -43,9 +43,9 @@ namespace Orange {
 		float m_LastFrameTime = 0.0f;
 
 	private:
-		static application* s_Instance;
+		static Application* s_Instance;
 	};
 
 	// To be defined in CLIENT
-	application* create_application();
+	Application* CreateApplication();
 }

@@ -1,8 +1,8 @@
 #include "ogpch.h"
 #include "OrthographicCameraController.h"
 
-#include "orange/Input.h"
-#include "orange/KeyCodes.h"
+#include "Orange/Core/Input.h"
+#include "Orange/Core/KeyCodes.h"
 
 
 namespace Orange {

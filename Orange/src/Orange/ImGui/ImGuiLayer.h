@@ -1,10 +1,10 @@
 #pragma once
 
-#include "orange/Layer.h"
+#include "Orange/Core/Layer.h"
 
-#include "orange/Events/ApplicationEvent.h"
-#include "orange/Events/KeyEvent.h"
-#include "orange/Events/MouseEvent.h"
+#include "Orange/Events/ApplicationEvent.h"
+#include "Orange/Events/KeyEvent.h"
+#include "Orange/Events/MouseEvent.h"
 
 
 namespace Orange {

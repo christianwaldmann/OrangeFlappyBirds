@@ -2,9 +2,9 @@
 #include "ImGuiLayer.h"
 
 
-#include "orange/ImGui/ImGuiBuild.cpp"
+#include "Orange/ImGui/ImGuiBuild.cpp"
 
-#include "orange/application.h"
+#include "Orange/Core/Application.h"
 
 
 namespace Orange {
@@ -38,7 +38,7 @@ namespace Orange {
 			style.Colors[ImGuiCol_WindowBg].w = 1.0f;
 		}
 
-		application& app = application::Get();
+		Application& app = Application::Get();
 		GLFWwindow* window = static_cast<GLFWwindow*>(app.GetWindow().GetNativeWindow());
 
 		// Setup Platform/Renderer bindings
@@ -69,7 +69,7 @@ namespace Orange {
 
 	void ImGuiLayer::End() {
 		ImGuiIO& io = ImGui::GetIO();
-		application& app = application::Get();
+		Application& app = Application::Get();
 		io.DisplaySize = ImVec2((float)app.GetWindow().GetWidth(), (float)app.GetWindow().GetHeight());
 
 		// Rendering

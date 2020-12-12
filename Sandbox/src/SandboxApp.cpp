@@ -1,4 +1,4 @@
-#include <orange.h>
+#include <Orange.h>
 
 #include "Platform/OpenGL/OpenGLShader.h"
 
@@ -208,7 +208,7 @@ private:
 
 
 
-class Sandbox : public Orange::application {
+class Sandbox : public Orange::Application {
 
 public:
 	Sandbox() {
@@ -222,6 +222,6 @@ public:
 };
 
 
-Orange::application* Orange::create_application() {
+Orange::Application* Orange::CreateApplication() {
 	return new Sandbox();
 }

@@ -2,8 +2,8 @@
 
 #include "ogpch.h"
 
-#include "orange/core.h"
-#include "orange/Events/Event.h"
+#include "Orange/Core/Core.h"
+#include "Orange/Events/Event.h"
 
 
 namespace Orange {

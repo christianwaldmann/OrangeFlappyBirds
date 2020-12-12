@@ -1,11 +1,11 @@
 #include "ogpch.h"
-#include "application.h"
+#include "Application.h"
 
-#include "orange/Log.h"
+#include "Orange/Core/Log.h"
 
 #include "Input.h"
 
-#include "orange/Renderer/Renderer.h"
+#include "Orange/Renderer/Renderer.h"
 
 #include <GLFW/glfw3.h>
 
@@ -15,15 +15,15 @@ namespace Orange {
 #define BIND_EVENT_FN(x) std::bind(&x, this, std::placeholders::_1)
 
 
-	application* application::s_Instance = nullptr;
+	Application* Application::s_Instance = nullptr;
 
 
-	application::application() {
+	Application::Application() {
 		OG_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
 
 		m_Window = std::unique_ptr<Window>(Window::Create());
-		m_Window->SetEventCallback(BIND_EVENT_FN(application::OnEvent));
+		m_Window->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
 		m_Window->SetVSync(false);
 
 		Renderer::Init();
@@ -33,10 +33,10 @@ namespace Orange {
 	}
 
 
-	application::~application() {}
+	Application::~Application() {}
 
 
-	void application::run() {
+	void Application::run() {
 		while (m_Running) {
 			float time = (float)glfwGetTime(); // should later be refactored to: Platform::GetTime()
 			Timestep timestep = time - m_LastFrameTime;
@@ -57,10 +57,10 @@ namespace Orange {
 	}
 
 
-	void application::OnEvent(Event& e) {
+	void Application::OnEvent(Event& e) {
 		EventDispatcher dispatcher(e);
-		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(application::OnWindowClose));
-		dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(application::OnWindowResize));
+		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(Application::OnWindowClose));
+		dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(Application::OnWindowResize));
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); ) {
 			(*--it)->OnEvent(e);
@@ -70,24 +70,24 @@ namespace Orange {
 	}
 
 
-	void application::PushLayer(Layer* layer) {
+	void Application::PushLayer(Layer* layer) {
 		m_LayerStack.PushLayer(layer);
 		layer->OnAttach();
 	}
 
 
-	void application::PushOverlay(Layer* overlay) {
+	void Application::PushOverlay(Layer* overlay) {
 		m_LayerStack.PushOverlay(overlay);
 		overlay->OnAttach();
 	}
 
 
-	bool application::OnWindowClose(WindowCloseEvent& e) {
+	bool Application::OnWindowClose(WindowCloseEvent& e) {
 		m_Running = false;
 		return true;
 	}
 
-	bool application::OnWindowResize(WindowResizeEvent& e) {
+	bool Application::OnWindowResize(WindowResizeEvent& e) {
 		if (e.GetWidth() == 0 || e.GetHeight() == 0) {
 			m_Minimized = true;
 			return false;

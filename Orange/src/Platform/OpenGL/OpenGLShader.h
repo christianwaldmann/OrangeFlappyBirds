@@ -1,6 +1,6 @@
 #pragma once
 
-#include "orange/Renderer/Shader.h"
+#include "Orange/Renderer/Shader.h"
 #include <glm/glm.hpp>
 
 

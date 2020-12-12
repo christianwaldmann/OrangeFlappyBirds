@@ -1,10 +1,10 @@
 #pragma once
 
-#include "orange/Renderer/OrthographicCamera.h"
-#include "orange/Core/Timestep.h"
+#include "Orange/Renderer/OrthographicCamera.h"
+#include "Orange/Core/Timestep.h"
 
-#include "orange/Events/ApplicationEvent.h"
-#include "orange/Events/MouseEvent.h"
+#include "Orange/Events/ApplicationEvent.h"
+#include "Orange/Events/MouseEvent.h"
 
 
 namespace Orange {

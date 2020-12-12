@@ -1,9 +1,9 @@
 #include "ogpch.h"
 #include "WindowsWindow.h"
 
-#include "orange/Events/ApplicationEvent.h"
-#include "orange/Events/MouseEvent.h"
-#include "orange/Events/KeyEvent.h"
+#include "Orange/Events/ApplicationEvent.h"
+#include "Orange/Events/MouseEvent.h"
+#include "Orange/Events/KeyEvent.h"
 
 #include "Platform/OpenGL/OpenGLContext.h"
 

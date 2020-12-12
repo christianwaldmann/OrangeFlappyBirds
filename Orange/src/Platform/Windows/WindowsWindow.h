@@ -1,8 +1,8 @@
 #pragma once
 
-#include "orange/Window.h"
+#include "Orange/Core/Window.h"
 
-#include "orange/Renderer/GraphicsContext.h"
+#include "Orange/Renderer/GraphicsContext.h"
 
 #include "GLFW/glfw3.h"
 
