@@ -28,9 +28,3 @@
 #include "Orange/Renderer/VertexArray.h"
 
 #include "Orange/Renderer/OrthographicCamera.h"
-
-// --- Entry Point ----------------------------------
-
-#include "Orange/Core/EntryPoint.h"
-
-// --------------------------------------------------
