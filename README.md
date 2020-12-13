@@ -1,6 +1,8 @@
 # Orange
 
-<img align="center" src="/Resources/Branding/Orange_Logo_300px_bg_transparent.png" alt="Orange Logo">
+<p align="center">
+  <img src="/Resources/Branding/Orange_Logo_300px_bg_transparent.png" alt="Orange Logo"/>
+</p>
 
 Orange is an early-stage interactive application and rendering engine for Windows. Currently not much is implemented. It is heavily based on the [Hazel Engine](https://github.com/TheCherno/Hazel).
 
