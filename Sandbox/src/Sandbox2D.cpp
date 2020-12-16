@@ -41,7 +41,7 @@ void Sandbox2D::OnUpdate(Orange::Timestep ts) {
 		OG_PROFILE_SCOPE("Renderer Draw");
 		Orange::Renderer2D::BeginScene(m_CameraController.GetCamera());
 
-		Orange::Renderer2D::DrawQuad({ -1.0f, 0.0f }, { 0.8f, 1.0f }, { 0.8f, 0.2f, 0.3f, 1.0f });
+		Orange::Renderer2D::DrawQuadRotated({ -1.0f, 0.0f }, { 0.8f, 1.0f }, glm::radians(-45.0f), { 0.8f, 0.2f, 0.3f, 1.0f });
 		Orange::Renderer2D::DrawQuad({ 0.5f, -0.5f }, { 0.5f, 0.75f }, { 0.2f, 0.3f, 0.8f, 1.0f });
 		Orange::Renderer2D::DrawQuad({ 0.0f, 0.0f, -0.1f }, { 10.0f, 10.0f }, m_CheckerboardTexture, 10.0f);
 
