@@ -27,26 +27,36 @@ namespace Orange {
 
 
 	OpenGLVertexArray::OpenGLVertexArray() {
+		OG_PROFILE_FUNCTION();
+
 		glCreateVertexArrays(1, &m_RendererID);
 	}
 
 
 	OpenGLVertexArray::~OpenGLVertexArray() {
+		OG_PROFILE_FUNCTION();
+
 		glDeleteVertexArrays(1, &m_RendererID);
 	}
 
 
 	void OpenGLVertexArray::Bind() const {
+		OG_PROFILE_FUNCTION();
+
 		glBindVertexArray(m_RendererID);
 	}
 
 
 	void OpenGLVertexArray::Unbind() const {
+		OG_PROFILE_FUNCTION();
+
 		glBindVertexArray(0);
 	}
 
 
 	void OpenGLVertexArray::AddVertexBuffer(const Ref<VertexBuffer>& vertexBuffer) {
+		OG_PROFILE_FUNCTION();
+
 		OG_CORE_ASSERT(vertexBuffer->GetLayout().GetElements().size(), "Vertex Buffer has no layout!");
 
 		glBindVertexArray(m_RendererID);
@@ -65,6 +75,8 @@ namespace Orange {
 
 
 	void OpenGLVertexArray::SetIndexBuffer(const Ref<IndexBuffer>& indexBuffer) {
+		OG_PROFILE_FUNCTION();
+
 		glBindVertexArray(m_RendererID);
 		indexBuffer->Bind();
 		m_IndexBuffer = indexBuffer;

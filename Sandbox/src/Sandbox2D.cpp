@@ -12,11 +12,14 @@ Sandbox2D::Sandbox2D() : Layer("Sandbox2D"), m_CameraController(1280.0f / 720.0f
 
 
 void Sandbox2D::OnAttach() {
+	OG_PROFILE_FUNCTION();
+
 	m_CheckerboardTexture = Orange::Texture2D::Create("assets/textures/Checkerboard.png");
 }
 
 
 void Sandbox2D::OnDetach() {
+	OG_PROFILE_FUNCTION();
 
 }
 
@@ -25,10 +28,7 @@ void Sandbox2D::OnUpdate(Orange::Timestep ts) {
 	OG_PROFILE_FUNCTION();
 
 	// Update
-	{
-		OG_PROFILE_SCOPE("CameraController::OnUpdate");
-		m_CameraController.OnUpdate(ts);
-	}
+	m_CameraController.OnUpdate(ts);
 
 	// Render
 	{

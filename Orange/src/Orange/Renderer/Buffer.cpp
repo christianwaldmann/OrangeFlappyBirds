@@ -9,6 +9,8 @@
 namespace Orange {
 
 	VertexBuffer* VertexBuffer::Create(float* vertices, uint32_t size) {
+		OG_PROFILE_FUNCTION();
+
 		switch (Renderer::GetAPI()) {
 		case RendererAPI::API::None:
 			OG_CORE_ASSERT(false, "RendererAPI::None is currently not supported!");

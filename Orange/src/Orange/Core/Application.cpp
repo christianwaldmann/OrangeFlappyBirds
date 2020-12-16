@@ -19,6 +19,8 @@ namespace Orange {
 
 
 	Application::Application() {
+		OG_PROFILE_FUNCTION();
+
 		OG_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
 
@@ -33,23 +35,35 @@ namespace Orange {
 	}
 
 
-	Application::~Application() {}
+	Application::~Application() {
+		OG_PROFILE_FUNCTION();
+	}
 
 
 	void Application::run() {
+		OG_PROFILE_FUNCTION();
+
 		while (m_Running) {
+			OG_PROFILE_SCOPE("RunLoop");
+
 			float time = (float)glfwGetTime(); // should later be refactored to: Platform::GetTime()
 			Timestep timestep = time - m_LastFrameTime;
 			m_LastFrameTime = time;
 
 			if (!m_Minimized) {
-				for (Layer* layer : m_LayerStack)
-					layer->OnUpdate(timestep);
+				{
+					OG_PROFILE_SCOPE("LayerStack OnUpdate");
+					for (Layer* layer : m_LayerStack)
+						layer->OnUpdate(timestep);
+				}
 
 			}
 			m_ImGuiLayer->Begin();
-			for (Layer* layer : m_LayerStack)
-				layer->OnImGuiRender();
+			{
+				OG_PROFILE_SCOPE("LayerSTack OnImGuiRender");
+				for (Layer* layer : m_LayerStack)
+					layer->OnImGuiRender();
+			}
 			m_ImGuiLayer->End();
 
 			m_Window->OnUpdate();
@@ -58,6 +72,8 @@ namespace Orange {
 
 
 	void Application::OnEvent(Event& e) {
+		OG_PROFILE_FUNCTION();
+
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(Application::OnWindowClose));
 		dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(Application::OnWindowResize));
@@ -71,12 +87,16 @@ namespace Orange {
 
 
 	void Application::PushLayer(Layer* layer) {
+		OG_PROFILE_FUNCTION();
+
 		m_LayerStack.PushLayer(layer);
 		layer->OnAttach();
 	}
 
 
 	void Application::PushOverlay(Layer* overlay) {
+		OG_PROFILE_FUNCTION();
+
 		m_LayerStack.PushOverlay(overlay);
 		overlay->OnAttach();
 	}
@@ -88,6 +108,8 @@ namespace Orange {
 	}
 
 	bool Application::OnWindowResize(WindowResizeEvent& e) {
+		OG_PROFILE_FUNCTION();
+
 		if (e.GetWidth() == 0 || e.GetHeight() == 0) {
 			m_Minimized = true;
 			return false;

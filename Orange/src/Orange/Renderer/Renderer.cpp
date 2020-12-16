@@ -11,6 +11,8 @@ namespace Orange {
 
 
 	void Renderer::Init() {
+		OG_PROFILE_FUNCTION();
+
 		RenderCommand::Init();
 		Renderer2D::Init();
 	}

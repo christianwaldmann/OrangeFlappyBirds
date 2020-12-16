@@ -22,6 +22,8 @@ namespace Orange {
 
 
 	void Renderer2D::Init() {
+		OG_PROFILE_FUNCTION();
+
 		s_Data = new Renderer2DStorage();
 
 
@@ -59,17 +61,22 @@ namespace Orange {
 
 
 	void Renderer2D::Shutdown() {
+		OG_PROFILE_FUNCTION();
+
 		delete s_Data;
 	}
 
 
 	void Renderer2D::BeginScene(const OrthographicCamera& camera) {
+		OG_PROFILE_FUNCTION();
+
 		s_Data->TextureShader->Bind();
 		s_Data->TextureShader->SetMat4("u_ViewProjection", camera.GetViewProjectionMatrix());
 	}
 
 
 	void Renderer2D::EndScene() {
+		OG_PROFILE_FUNCTION();
 
 	}
 
@@ -80,6 +87,8 @@ namespace Orange {
 
 
 	void Renderer2D::DrawQuad(const glm::vec3& position, const glm::vec2& size, const glm::vec4& color) {
+		OG_PROFILE_FUNCTION();
+
 		s_Data->TextureShader->SetFloat4("u_Color", color);
 		s_Data->WhiteTexture->Bind();
 
@@ -97,6 +106,8 @@ namespace Orange {
 
 
 	void Renderer2D::DrawQuad(const glm::vec3& position, const glm::vec2& size, const Ref<Texture2D>& texture) {
+		OG_PROFILE_FUNCTION();
+
 		s_Data->TextureShader->SetFloat4("u_Color", glm::vec4(1.0f));
 
 		texture->Bind();

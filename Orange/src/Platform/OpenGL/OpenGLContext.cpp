@@ -13,6 +13,8 @@ namespace Orange {
 
 
 	void OpenGLContext::Init() {
+		OG_PROFILE_FUNCTION();
+
 		glfwMakeContextCurrent(m_WindowHandle);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		OG_CORE_ASSERT(status, "Failed to initialize Glad!");
@@ -25,6 +27,8 @@ namespace Orange {
 
 
 	void OpenGLContext::SwapBuffers() {
+		OG_PROFILE_FUNCTION();
+
 		glfwSwapBuffers(m_WindowHandle);
 	}
 
